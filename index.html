@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f7f7" />
+  <meta name="description" content="NITA Ghana staff workspace prototype" />
+  <title>NITA Workspace | Ghana</title>
+  <link rel="icon" type="image/png" href="public/assets/nita-brand.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="workspace-updates.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" data-page="Home" aria-label="NITA Workspace home">
+        <img src="public/assets/nita-brand.png" alt="Republic of Ghana and NITA" />
+      </a>
+      <nav id="side-nav" aria-label="Main navigation"></nav>
+      <div class="sidebar-footer">
+        <div class="ghana-flag" aria-label="Flag of Ghana"><i></i><i></i><i></i><b>★</b></div>
+        <span>People <i>·</i> Service <i>·</i> Progress</span>
+        <button class="collapse-button" id="collapse-sidebar" title="Collapse sidebar" aria-label="Collapse sidebar"></button>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation"></button>
+        <div class="global-search" id="search-wrap">
+          <span class="search-symbol"></span>
+          <input id="global-search" type="search" placeholder="Search people, documents, services and more..." autocomplete="off" aria-label="Search workspace" />
+          <kbd>Ctrl</kbd><kbd>K</kbd>
+          <div class="search-results hidden" id="search-results"></div>
+        </div>
+        <div class="header-weather" id="header-weather"></div>
+        <div class="top-actions">
+          <div class="popover-wrap">
+            <button class="top-action" id="notifications-button" aria-label="Notifications"><span class="top-icon"></span><span class="notification-dot">3</span><small>Notifications</small></button>
+            <div class="popover notifications-panel hidden" id="notifications-panel"></div>
+          </div>
+          <div class="popover-wrap">
+            <button class="top-action" id="apps-button" aria-label="Apps"><span class="top-icon"></span><small>Apps</small></button>
+            <div class="popover apps-panel hidden" id="apps-panel"></div>
+          </div>
+          <button class="top-action help-top" id="help-button" aria-label="Help"><span class="top-icon"></span><small>Help</small></button>
+          <div class="profile-wrap">
+            <button class="profile-button" id="profile-button" aria-expanded="false">
+              <span class="avatar avatar-photo">AM</span>
+              <span class="profile-copy"><b>Akua Mensah</b><small>Director, Administration</small></span>
+              <span class="profile-chevron">⌄</span>
+            </button>
+            <div class="popover profile-menu hidden" id="profile-menu"></div>
+          </div>
+        </div>
+      </header>
+      <main class="main-content" id="main-content" tabindex="-1"></main>
+      <footer class="global-footer"><span>© 2026 NITA Ghana</span><span>Workspace prototype <i>·</i> Sample data</span><a href="#help-feedback" data-page="Help & Feedback">Help & feedback</a></footer>
+    </div>
+  </div>
+  <div id="toast-region" class="toast-region" aria-live="polite"></div>
+  <div id="modal-root"></div>
+  <script src="app.js"></script>
+  <script src="workspace-updates.js"></script>
+</body>
+</html>

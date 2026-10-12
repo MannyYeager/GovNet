@@ -1,0 +1,389 @@
+/* Dashboard copy, weather, and calendar refinements. */
+.top-actions .top-icon { background-image: none !important; color: #324252; }
+.top-icon svg { display: block; }
+.dashboard-aside .promo-card { height: auto; min-height: 202px; padding: 23px 20px; flex: none; }
+.promo-card:before { background: linear-gradient(90deg, #003b32f5, #003b32df 65%, #003b3290); }
+.promo-card h3 { max-width: none; font-size: 22px; line-height: 1.3; font-weight: 600; letter-spacing: -.25px; margin: 0; }
+.promo-card h3 span { display: block; }
+.promo-card .tricolor { margin: 14px 0 12px; width: 70px; }
+.promo-card p { margin: 0 0 7px; max-width: 230px; line-height: 1.45; }
+.promo-card .outline-button { margin-top: 8px; }
+button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid #21a652; outline-offset: 3px; }
+
+.weather-panel { border: 1px solid #e2ece6; border-radius: var(--radius); padding: 16px 17px 12px; background: linear-gradient(145deg, #fff 35%, #f0f8f3); flex: 1; min-width: 0; }
+.weather-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.weather-panel h2 { margin: 0; font-size: 15px; display: flex; align-items: center; gap: 7px; }
+.weather-panel h2 svg { color: #11824c; }
+.weather-location { display: flex; align-items: center; gap: 3px; color: #6a7d73; }
+.weather-location select { border: 0; background: transparent; color: #51665a; padding: 4px 0; font-size: 11px; cursor: pointer; max-width: 92px; }
+.weather-current { display: flex; align-items: center; justify-content: space-between; padding: 16px 0 14px; gap: 10px; }
+.weather-date { color: #7b8b82; font-size: 10px; }
+.weather-temperature { font-size: 47px; font-weight: 600; letter-spacing: -2px; color: #1c3e2d; line-height: 1.1; margin: 5px 0; }
+.weather-temperature > span { font-size: 24px; letter-spacing: -1px; font-weight: 400; vertical-align: top; display: inline-block; margin-top: 6px; }
+.weather-current p { font-size: 11px; margin: 0; color: #526d5c; }
+.weather-current p > span { display: block; color: #7d8b82; font-size: 10px; margin-top: 4px; }
+.weather-large-icon { width: 74px; height: 74px; display: grid; place-items: center; background: #eef6e9; border-radius: 50%; color: #e6ae26; flex: none; }
+.weather-large-icon svg { stroke-width: 1.4; }
+.weather-large-icon.cloud, .weather-small-icon.cloud { color: #6e9aab; }
+.weather-large-icon.rain, .weather-small-icon.rain { color: #548daf; }
+.weather-large-icon.partly svg { fill: #fff3c333; }
+.weather-metrics { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #e5eee8; border-bottom: 1px solid #e5eee8; padding: 11px 0; }
+.weather-metrics > span { display: grid; grid-template-columns: auto auto; justify-content: center; align-items: center; gap: 4px; border-right: 1px solid #e2eae5; font-size: 11px; }
+.weather-metrics > span:last-child { border-right: 0; }
+.weather-metrics svg { color: #5a9580; }
+.weather-metrics b { font-weight: 500; color: #365a45; }
+.weather-metrics small { grid-column: span 2; text-align: center; color: #84938a; font-size: 9px; }
+.weather-tabs { display: flex; gap: 13px; margin-top: 9px; }
+.weather-tabs button { border: 0; border-bottom: 2px solid transparent; padding: 6px 0; background: none; color: #88958e; font-size: 10px; }
+.weather-tabs button.active { border-bottom-color: #21a652; color: #167942; font-weight: 600; }
+.weather-forecast { display: flex; justify-content: space-around; gap: 5px; padding: 12px 0 8px; }
+.weather-forecast > div { display: grid; gap: 6px; justify-items: center; }
+.weather-forecast small { font-size: 10px; color: #86938b; }
+.weather-small-icon { color: #d5a327; display: flex; }
+.weather-forecast strong { font-size: 13px; color: #385342; font-weight: 600; }
+.weather-forecast em { font-style: normal; font-weight: 400; color: #9aa69e; font-size: 11px; }
+.weather-sample { display: block; text-align: right; font-size: 9px; color: #97a59b; margin-top: 3px; }
+
+.nita-calendar-layout { display: grid; grid-template-columns: minmax(0, 1fr) 284px; gap: 16px; align-items: start; }
+.nita-calendar-surface { overflow: hidden; }
+.nita-calendar-toolbar { padding: 19px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 1px solid #edf1ee; }
+.nita-calendar-navigation { display: flex; align-items: center; gap: 6px; }
+.nita-calendar-navigation h2 { font-size: 19px; font-weight: 600; margin: 0 8px; white-space: nowrap; }
+.nita-calendar-arrow { height: 30px; width: 28px; display: grid; place-items: center; border: 1px solid #e1e8e4; border-radius: 7px; color: #6b7c72; background: #fff; }
+.nita-calendar-arrow:hover, .nita-today-button:hover { background: #eff8f2; border-color: #b2d4bd; }
+.nita-today-button { border: 1px solid #e1e8e4; background: #fff; color: #516359; border-radius: 7px; font-size: 11px; height: 30px; padding: 0 10px; }
+.nita-calendar-views { display: flex; align-items: center; background: #f2f5f3; padding: 3px; border-radius: 8px; gap: 2px; }
+.nita-calendar-views button { display: flex; align-items: center; gap: 5px; background: none; border: 0; color: #78887d; border-radius: 6px; padding: 7px 9px; font-size: 11px; }
+.nita-calendar-views button.active { background: #fff; color: #0e8041; box-shadow: 0 1px 5px #1d422c12; font-weight: 600; }
+.nita-month-scroll, .nita-week-scroll { overflow-x: auto; scrollbar-width: thin; }
+.nita-month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); min-width: 600px; }
+.nita-weekday { padding: 13px 6px; text-align: center; font-size: 11px; color: #8b988f; background: #fcfdfc; border-bottom: 1px solid #e9eee9; font-weight: 500; }
+.nita-calendar-day { min-height: 108px; min-width: 0; padding: 7px 5px; border-right: 1px solid #ebefec; border-bottom: 1px solid #ebefec; background: #fff; transition: background .15s; }
+.nita-calendar-day:nth-child(7n) { border-right: 0; }
+.nita-calendar-day.outside { background: #fafcfb; }
+.nita-calendar-day.selected { background: #f1faf4; box-shadow: inset 0 0 0 1px #c8e6d1; }
+.nita-day-number { margin-left: 3px; background: transparent; border: 0; color: #66776c; height: 27px; min-width: 27px; padding: 2px 5px; border-radius: 50%; font-size: 12px; }
+.outside .nita-day-number { color: #c0c9c3; }
+.nita-day-number:hover { background: #e0f2e6; color: #087a3c; }
+.nita-day-number.is-today { background: #21a652; color: #fff; font-weight: 600; }
+.nita-day-events { display: grid; gap: 4px; margin-top: 5px; }
+.nita-calendar-event { display: flex; align-items: center; gap: 5px; border: 0; border-left: 2px solid; border-radius: 4px; padding: 5px; width: 100%; font-size: 10px; text-align: left; min-width: 0; }
+.nita-calendar-event time { flex: none; font-size: 9px; opacity: .8; }
+.nita-calendar-event span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nita-calendar-event.green, .nita-timed-event.green { background: #e6f5eb; color: #237449; border-color: #21a652; }
+.nita-calendar-event.blue, .nita-timed-event.blue { background: #edf1fd; color: #516fa6; border-color: #7c99d9; }
+.nita-calendar-event.amber, .nita-timed-event.amber { background: #fff4df; color: #9c7a31; border-color: #e5b45b; }
+.nita-calendar-event:hover, .nita-timed-event:hover { filter: brightness(.97); }
+.nita-more-events { border: 0; background: transparent; color: #6f8275; font-size: 9px; padding: 1px 5px; text-align: left; }
+.nita-calendar-legend { display: flex; align-items: center; gap: 16px; padding: 14px 16px; color: #85928a; font-size: 11px; flex-wrap: wrap; }
+.nita-calendar-legend > span { display: flex; align-items: center; gap: 6px; }
+.nita-calendar-legend > small { margin-left: auto; font-size: 10px; color: #a1ada5; }
+.nita-category-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex: none; }
+.nita-category-dot.green { background: #21a652; }
+.nita-category-dot.blue { background: #7c99d9; }
+.nita-category-dot.amber { background: #e5b45b; }
+.nita-calendar-sidebar { display: grid; gap: 13px; }
+.nita-schedule-heading { padding: 17px 14px; display: flex; align-items: center; gap: 11px; border-bottom: 1px solid #eef1ee; }
+.nita-date-tile { display: grid; justify-items: center; border-radius: 10px; background: #eaf7ee; color: #188044; width: 44px; padding: 7px 5px; flex: none; }
+.nita-date-tile small { font-size: 9px; text-transform: uppercase; letter-spacing: .7px; }
+.nita-date-tile strong { font-size: 22px; font-weight: 600; }
+.nita-schedule-heading h2 { font-size: 15px; margin: 0 0 4px; }
+.nita-schedule-heading p { font-size: 10px; color: #94a096; margin: 0; }
+.nita-schedule-event { display: flex; align-items: flex-start; gap: 9px; width: 100%; border: 0; border-bottom: 1px solid #f0f3f1; background: #fff; padding: 17px 14px; text-align: left; color: #4e6055; }
+.nita-schedule-event:hover { background: #f8fcf9; }
+.nita-schedule-time { min-width: 32px; font-size: 11px; font-weight: 600; }
+.nita-schedule-time small { display: block; font-size: 10px; font-weight: 400; color: #97a398; margin-top: 4px; }
+.nita-schedule-event > .nita-category-dot { margin-top: 4px; }
+.nita-schedule-copy { min-width: 0; flex: 1; }
+.nita-schedule-copy strong { font-size: 11px; line-height: 1.35; font-weight: 500; display: block; }
+.nita-schedule-copy small { display: flex; align-items: center; gap: 4px; font-size: 9px; color: #97a298; margin-top: 7px; line-height: 1.4; }
+.nita-schedule-copy small svg { flex: none; }
+.nita-schedule-event > svg { color: #adb7ae; margin-top: 2px; flex: none; }
+.nita-add-day { width: 100%; display: flex; align-items: center; justify-content: center; gap: 6px; color: #25814a; background: #fff; border: 0; padding: 14px; font-size: 11px; }
+.nita-add-day:hover { background: #f1faf4; }
+.nita-calendar-filter { padding: 17px 14px 12px; }
+.nita-calendar-filter h2, .nita-upcoming h2 { margin: 0 0 12px; font-size: 14px; }
+.nita-calendar-filter > button { display: flex; align-items: center; gap: 10px; border: 0; border-radius: 8px; background: transparent; color: #7b8a7f; width: 100%; font-size: 12px; padding: 8px; margin-top: 2px; text-align: left; }
+.nita-calendar-filter > button.active { background: #f0f9f3; color: #1b7e43; }
+.nita-category-icon { height: 30px; width: 30px; border-radius: 8px; display: grid; place-items: center; }
+.nita-category-icon.green { background: #eaf7ee; color: #21a652; }
+.nita-category-icon.blue { background: #edf1fd; color: #7c99d9; }
+.nita-category-icon.amber { background: #fff4df; color: #c5983f; }
+.nita-calendar-count { margin-left: auto; font-size: 10px; color: #a2afa6; }
+.nita-upcoming { padding: 17px 17px 13px; }
+.nita-upcoming h2 { display: flex; align-items: center; gap: 7px; }
+.nita-upcoming h2 svg { color: #8fa294; }
+.nita-upcoming > button { border: 0; border-bottom: 1px solid #eff3ef; background: transparent; text-align: left; display: grid; gap: 5px; width: 100%; padding: 10px 0; }
+.nita-upcoming > button span { font-size: 10px; color: #94a397; }
+.nita-upcoming > button strong { font-size: 11px; color: #627569; font-weight: 500; }
+.nita-upcoming > button:hover strong { color: #168844; }
+.nita-upcoming > small { color: #a0ada4; font-size: 9px; display: block; margin-top: 12px; }
+.nita-upcoming p { color: #94a397; font-size: 11px; }
+.nita-calendar-empty { display: grid; justify-items: center; gap: 8px; padding: 48px 20px; color: #83a28d; text-align: center; }
+.nita-calendar-empty strong { color: #577361; font-size: 14px; font-weight: 500; }
+.nita-calendar-empty p { margin: 0 0 9px; font-size: 12px; color: #96a59a; }
+.nita-calendar-empty.compact { padding: 26px 15px; }
+.nita-calendar-empty.compact strong { font-size: 12px; }
+.nita-calendar-empty.compact p { font-size: 10px; margin-bottom: 0; }
+.nita-week-grid { display: grid; grid-template-columns: 48px repeat(7,minmax(0,1fr)); min-width: 780px; }
+.nita-week-time-head { font-size: 9px; color: #a2afa6; align-self: center; text-align: center; }
+.nita-week-head { display: grid; justify-items: center; padding: 12px; gap: 5px; background: #fcfdfc; border: 0; border-bottom: 1px solid #e9eee9; color: #8b9b90; }
+.nita-week-head span { font-size: 10px; }
+.nita-week-head strong { font-size: 21px; font-weight: 500; }
+.nita-week-head.is-today { color: #21a652; background: #f1faf4; }
+.nita-time-gutter { position: relative; }
+.nita-time-gutter > span { position: absolute; left: 9px; font-size: 9px; color: #a0ada4; transform: translateY(4px); }
+.nita-week-column { border-left: 1px solid #ecf0ed; position: relative; background: repeating-linear-gradient(to bottom, transparent 0, transparent 57px, #edf1ee 57px, #edf1ee 58px); }
+.nita-timed-event { position: absolute; left: 3px; right: 3px; border: 0; border-left: 2px solid; border-radius: 5px; padding: 6px; text-align: left; overflow: hidden; display: flex; flex-direction: column; gap: 4px; }
+.nita-timed-event time { font-size: 9px; }
+.nita-timed-event strong { font-size: 10px; font-weight: 500; line-height: 1.25; }
+.nita-timed-event small { font-size: 8px; opacity: .7; }
+.nita-agenda { min-height: 420px; padding: 10px 17px; }
+.nita-agenda-day { display: grid; grid-template-columns: 68px minmax(0,1fr); gap: 17px; padding: 10px 0; border-bottom: 1px solid #edf2ee; }
+.nita-agenda-day:last-child { border-bottom: 0; }
+.nita-agenda-date { display: flex; flex-direction: column; align-items: center; gap: 4px; padding-top: 16px; }
+.nita-agenda-date strong { font-size: 26px; font-weight: 500; color: #597365; }
+.nita-agenda-date span { font-size: 10px; color: #9aaa9f; }
+.nita-agenda .nita-schedule-event { border-radius: 8px; }
+.nita-agenda .nita-schedule-copy strong { font-size: 13px; }
+.nita-agenda .nita-schedule-copy small { font-size: 11px; }
+.nita-event-details { display: grid; gap: 20px; padding: 7px 0; }
+.nita-event-details > div { display: flex; gap: 14px; align-items: flex-start; font-size: 13px; color: #607769; line-height: 1.5; }
+.nita-event-details svg { color: #42a46a; flex: none; margin-top: 2px; }
+.nita-event-details strong { display: block; font-weight: 500; }
+.nita-event-details small { display: block; color: #91a095; margin-top: 3px; }
+.nita-event-notes { white-space: pre-wrap; overflow-wrap: anywhere; }
+.nita-event-origin { font-size: 10px; color: #9dad9f; padding-top: 12px; border-top: 1px solid #edf2ee; margin: 0; }
+.nita-form-hint { display: flex; align-items: center; gap: 7px; font-size: 11px; color: #8c9b90; margin: 2px 0 0; line-height: 1.4; }
+
+@media(max-width:1280px) {
+  .nita-calendar-layout { grid-template-columns: minmax(0,1fr) 248px; gap: 12px; }
+  .nita-calendar-navigation h2 { font-size: 17px; }
+  .nita-calendar-toolbar { padding: 15px 12px; }
+  .promo-card h3 { font-size: 21px; }
+}
+@media(max-width:1080px) {
+  .dashboard-aside { grid-template-columns: minmax(0,1.4fr) minmax(0,1fr); align-items: start; }
+  .dashboard-aside .ai-card { grid-column: 1; grid-row: 1 / span 2; }
+  .dashboard-aside .promo-card, .dashboard-aside .weather-panel { grid-column: 2; }
+  .dashboard-aside .promo-card { min-height: 190px; }
+  .nita-calendar-layout { grid-template-columns: 1fr; }
+  .nita-calendar-sidebar { grid-template-columns: repeat(3,minmax(0,1fr)); align-items: start; }
+  .nita-schedule-event { padding: 14px 10px; gap: 6px; }
+  .nita-schedule-heading { padding: 14px 10px; gap: 7px; }
+  .nita-schedule-heading h2 { font-size: 13px; }
+}
+@media(max-width:780px) {
+  .dashboard-aside { grid-template-columns: 1fr; }
+  .dashboard-aside .ai-card, .dashboard-aside .promo-card, .dashboard-aside .weather-panel { grid-column: auto; grid-row: auto; }
+  .weather-panel { padding: 18px 20px 14px; }
+  .weather-current { padding: 20px 0 17px; }
+  .weather-large-icon { margin-right: 12px; }
+  .nita-calendar-sidebar { grid-template-columns: 1fr 1fr; }
+  .nita-day-schedule { grid-column: span 2; }
+  .nita-calendar-navigation h2 { font-size: 16px; margin: 0 5px; }
+  .nita-calendar-legend { gap: 12px; font-size: 10px; }
+  .nita-calendar-toolbar { gap: 13px; }
+}
+@media(max-width:460px) {
+  .nita-calendar-sidebar { grid-template-columns: 1fr; }
+  .nita-day-schedule { grid-column: auto; }
+  .nita-calendar-navigation { gap: 4px; }
+  .nita-calendar-navigation h2 { font-size: 15px; margin: 0 3px; }
+  .nita-calendar-arrow { width: 25px; }
+  .nita-today-button { padding: 0 7px; }
+  .nita-calendar-views { width: 100%; }
+  .nita-calendar-views button { flex: 1; justify-content: center; }
+  .nita-calendar-legend > small { margin-left: 0; width: 100%; }
+  .nita-agenda { padding: 5px 8px; }
+  .nita-agenda-day { grid-template-columns: 43px minmax(0,1fr); gap: 6px; }
+  .nita-agenda .nita-schedule-copy strong { font-size: 11px; }
+  .nita-agenda .nita-schedule-copy small { font-size: 10px; }
+}
+
+/* Compact header forecast and institutional quotes. */
+.topbar { gap: 16px; }
+.topbar .global-search { max-width: 800px; }
+.top-actions { margin-left: 0; }
+.header-weather { position: relative; flex: none; margin-left: auto; }
+.header-weather-button { display: flex; align-items: center; gap: 9px; border: 0; background: transparent; padding: 5px 9px; border-radius: 9px; min-height: 43px; text-align: left; color: #24392d; }
+.header-weather-button:hover, .header-weather-button[aria-expanded="true"] { background: #edf6ef; }
+.header-weather-symbol { display: grid; place-items: center; color: #dca934; }
+.header-weather-symbol.cloud { color: #7d9fab; }
+.header-weather-symbol.rain { color: #6f94bc; }
+.header-weather-copy { display: grid; gap: 2px; }
+.header-weather-copy strong { font-size: 16px; font-weight: 600; line-height: 1; }
+.header-weather-copy small { font-size: 10px; color: #7f8e84; }
+.header-weather-chevron { color: #8c9a91; margin-left: 3px; }
+.header-weather-detail { position: absolute; z-index: 45; top: calc(100% + 10px); right: 0; width: 316px; box-shadow: 0 12px 36px #223c2b18; border-radius: var(--radius); }
+.header-weather-detail .weather-panel { margin: 0; }
+.nita-vision-card { padding: 22px 20px 18px; gap: 20px; }
+.nita-quote-label { display: flex; align-items: center; gap: 8px; text-transform: uppercase; letter-spacing: 1.3px; font-size: 9px; color: #599071; font-weight: 600; }
+.nita-quote-label svg { flex: none; }
+.nita-vision-card blockquote { font-size: 19px; line-height: 1.4; color: #264d37; font-weight: 500; margin: 0; letter-spacing: -.15px; }
+.nita-quote-bottom { margin-top: auto; }
+.nita-quote-bottom .tricolor { width: 54px; margin: 0 0 12px; height: 3px; }
+.nita-quote-bottom > a { font-size: 10px; font-weight: 500; color: #607668; }
+.nita-quote-bottom > a span { display: block; font-size: 9px; color: #97a69b; margin-top: 4px; }
+.nita-quote-controls { display: flex; justify-content: flex-end; align-items: center; gap: 5px; margin-top: 10px; }
+.nita-quote-controls > span { color: #9aaa9d; font-size: 9px; margin-right: auto; }
+.nita-quote-controls > button { width: 26px; height: 26px; display: grid; place-items: center; background: #f5f9f6; border: 1px solid #e2eae4; border-radius: 50%; color: #6a8c75; }
+.nita-quote-controls > button:hover { background: #eaf5ee; color: #087a3c; }
+.nita-collaboration-card { border: 1px solid #e0eae2; border-radius: var(--radius); background: #fff; padding: 23px 21px 18px; min-height: 236px; flex: 1; display: flex; flex-direction: column; }
+.nita-collaboration-card blockquote { margin: 22px 0 12px; color: #245035; font-size: 24px; line-height: 1.3; font-weight: 500; letter-spacing: -.35px; max-width: 240px; }
+.nita-collaboration-card p { font-size: 12px; line-height: 1.5; color: #8b9b8f; margin: 0 0 23px; max-width: 230px; }
+.nita-collaboration-footer { margin-top: auto; }
+.nita-collaboration-footer .tricolor { width: 48px; height: 3px; margin: 0 0 12px; }
+.nita-collaboration-footer a { font-size: 10px; color: #85998c; display: flex; align-items: center; gap: 7px; }
+
+/* A calm, practical calendar with clearer hierarchy. */
+.nita-calendar-overview { display: grid; grid-template-columns: .9fr 1fr 1.4fr; gap: 0; border: 1px solid #e2e9e4; border-radius: 12px; background: #fff; margin-bottom: 18px; padding: 16px 0; }
+.nita-calendar-overview > div { display: flex; align-items: center; gap: 12px; padding: 0 20px; border-right: 1px solid #ecf0ed; min-width: 0; }
+.nita-calendar-overview > div:last-child { border-right: 0; }
+.nita-overview-icon { display: grid; place-items: center; color: #76a486; width: 34px; height: 34px; border-radius: 9px; background: #f4f8f5; flex: none; }
+.nita-calendar-overview > div > span:last-child { min-width: 0; }
+.nita-calendar-overview small { display: block; color: #839488; font-size: 11px; margin-bottom: 5px; }
+.nita-calendar-overview strong { display: block; font-size: 22px; font-weight: 600; color: #2a4634; line-height: 1.15; }
+.nita-calendar-overview strong em { font-style: normal; font-size: 12px; font-weight: 400; color: #85998b; }
+.nita-calendar-overview .nita-next-title { font-size: 13px; line-height: 1.3; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; font-weight: 500; }
+.nita-next-time { font-size: 10px; color: #7d9685; display: block; margin-top: 4px; }
+.nita-calendar-layout { grid-template-columns: minmax(0,1fr) 294px; gap: 18px; }
+.nita-calendar-surface { border-color: #e0e8e2; border-radius: 12px; }
+.nita-calendar-toolbar { padding: 21px 20px 19px; background: #fff; gap: 17px; }
+.nita-calendar-navigation { flex: 1; gap: 5px; }
+.nita-month-heading { margin-right: auto; padding-right: 15px; }
+.nita-calendar-navigation h2 { font-size: 23px; letter-spacing: -.4px; color: #24412e; margin: 0 0 5px; font-weight: 600; }
+.nita-month-heading > span { display: block; color: #8c9e90; font-size: 10px; }
+.nita-calendar-views { background: #f3f6f4; padding: 4px; }
+.nita-calendar-views button { padding: 8px 10px; color: #778a7d; }
+.nita-calendar-views button.active { box-shadow: 0 1px 3px #294d3410; }
+.nita-month-grid { min-width: 640px; }
+.nita-weekday { text-align: left; padding: 14px 12px; font-size: 11px; color: #6f8778; background: #f9fbfa; border-bottom-color: #e2eae4; }
+.nita-weekday.weekend { color: #a0ada4; }
+.nita-calendar-day { min-height: 124px; padding: 8px 6px; border-color: #e7ede8; }
+.nita-calendar-day.weekend { background: #fcfdfc; }
+.nita-calendar-day.outside { background: #f9fbfa; }
+.nita-calendar-day.selected { background: #f3faf5; box-shadow: inset 0 0 0 1px #a6d7b6; }
+.nita-day-top { display: flex; align-items: center; justify-content: space-between; gap: 4px; }
+.nita-day-number { font-size: 13px; font-weight: 500; color: #5a7262; height: 29px; min-width: 29px; }
+.nita-day-number.is-today { box-shadow: 0 2px 4px #21a65218; }
+.nita-day-add { opacity: 0; display: grid; place-items: center; border: 0; background: #e8f4ec; color: #68a67c; border-radius: 5px; width: 22px; height: 22px; }
+.nita-calendar-day:hover .nita-day-add, .nita-calendar-day:focus-within .nita-day-add, .nita-day-add:focus-visible { opacity: 1; }
+.nita-calendar-event { align-items: flex-start; gap: 4px; padding: 6px 5px; font-size: 10px; border-radius: 4px; }
+.nita-calendar-event span { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-clamp: 2; line-height: 1.3; }
+.nita-calendar-event time { line-height: 1.4; font-size: 9px; padding-top: 1px; }
+.nita-calendar-event.green, .nita-timed-event.green { background: #eaf5ee; color: #376a49; }
+.nita-calendar-event.blue, .nita-timed-event.blue { background: #eff3fb; color: #5a709e; }
+.nita-calendar-event.amber, .nita-timed-event.amber { background: #fbf4e6; color: #977d45; }
+.nita-calendar-sidebar { gap: 15px; }
+.nita-calendar-sidebar > .panel { border-radius: 12px; border-color: #e2e9e4; }
+.nita-schedule-heading { padding: 18px 16px; gap: 11px; align-items: center; }
+.nita-date-tile { width: 49px; border-radius: 9px; background: #edf7f0; padding: 8px 5px; }
+.nita-date-tile strong { font-size: 25px; }
+.nita-selected-day-label { display: block; color: #88a18f; font-size: 9px; margin-bottom: 3px; }
+.nita-schedule-heading h2 { font-size: 16px; font-weight: 600; color: #294731; }
+.nita-schedule-heading p { font-size: 10px; color: #8da194; }
+.nita-day-navigation { display: flex; gap: 1px; margin-left: auto; }
+.nita-day-navigation button { display: grid; place-items: center; background: transparent; border: 0; color: #839c8a; width: 20px; height: 26px; border-radius: 4px; }
+.nita-day-navigation button:hover { background: #edf7f0; color: #21a652; }
+.nita-schedule-event { padding: 19px 16px; gap: 10px; }
+.nita-schedule-time { color: #2f503a; font-size: 12px; }
+.nita-schedule-copy strong { font-size: 12px; color: #45634e; line-height: 1.4; }
+.nita-schedule-copy small { font-size: 10px; color: #849b8b; }
+.nita-add-day { background: #fbfdfb; padding: 15px; font-size: 11px; font-weight: 500; }
+.nita-calendar-filter { padding: 18px 16px 15px; }
+.nita-filter-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 9px; }
+.nita-filter-heading h2 { margin: 0; font-size: 14px; color: #36543f; }
+.nita-filter-heading > span { color: #9aaa9d; font-size: 9px; }
+.nita-calendar-filter > button { font-size: 12px; color: #738c7b; }
+.nita-category-icon { width: 27px; height: 27px; border-radius: 7px; }
+.nita-month-jump { display: grid; gap: 7px; margin-top: 15px; padding-top: 15px; border-top: 1px solid #edf2ee; color: #869b8c; font-size: 10px; }
+.nita-month-jump input { border: 1px solid #e0e9e3; border-radius: 7px; padding: 8px 9px; background: #fafcfb; width: 100%; color: #55705e; font-size: 12px; outline: none; color-scheme: light; }
+.nita-upcoming { padding: 18px 17px 15px; }
+.nita-upcoming > button strong { font-size: 12px; color: #55715e; }
+.nita-week-grid { min-width: 820px; }
+.nita-week-head { padding: 13px 8px; gap: 7px; }
+.nita-week-head.selected { background: #f2f8f4; }
+.nita-week-head strong { display: grid; place-items: center; width: 31px; height: 31px; font-size: 20px; border-radius: 50%; }
+.nita-week-head.is-today strong { background: #21a652; color: #fff; }
+.nita-timed-event { padding: 7px 6px; }
+.nita-timed-event strong { font-size: 11px; font-weight: 500; }
+.nita-now-line { position: absolute; left: 0; right: 0; height: 1px; background: #d78b7f; pointer-events: none; z-index: 2; }
+.nita-now-line i { position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #d78b7f; top: -2.5px; left: -3px; }
+.nita-agenda { min-height: 480px; padding: 12px 22px; }
+.nita-agenda-day { padding: 17px 0; }
+.nita-agenda-date strong { color: #497857; }
+.nita-agenda .nita-schedule-event { border: 0; background: #fbfdfb; margin: 4px 0; }
+.nita-agenda .nita-schedule-event:hover { background: #f0f7f2; }
+.nita-agenda .nita-schedule-copy strong { color: #3d6349; }
+
+@media(max-width:1280px) {
+  .topbar { gap: 12px; }
+  .header-weather-button { gap: 6px; padding: 5px 6px; }
+  .nita-calendar-layout { grid-template-columns: minmax(0,1fr) 270px; gap: 14px; }
+  .nita-calendar-toolbar { padding: 18px 15px; }
+  .nita-calendar-navigation h2 { font-size: 21px; }
+  .nita-calendar-overview > div { padding: 0 15px; gap: 9px; }
+  .nita-calendar-overview strong em { display: block; font-size: 10px; margin-top: 3px; }
+}
+@media(max-width:1080px) {
+  .dashboard-aside .nita-collaboration-card { grid-column: 2; }
+  .nita-calendar-layout { grid-template-columns: 1fr; }
+  .nita-calendar-sidebar { grid-template-columns: repeat(3,minmax(0,1fr)); align-items: start; }
+  .nita-calendar-navigation h2 { font-size: 22px; }
+  .nita-schedule-heading { padding: 15px 12px; gap: 8px; }
+  .nita-schedule-heading h2 { font-size: 14px; }
+  .nita-date-tile { width: 42px; }
+  .nita-day-navigation { flex-direction: column; }
+  .nita-day-navigation button { height: 20px; width: 16px; }
+  .nita-schedule-event { padding: 17px 12px; gap: 7px; }
+}
+@media(max-width:780px) {
+  .topbar { gap: 8px; }
+  .topbar .global-search { min-width: 0; }
+  .header-weather-button { gap: 5px; padding: 4px; }
+  .header-weather-copy strong { font-size: 14px; }
+  .header-weather-copy small { font-size: 9px; }
+  .header-weather-chevron { display: none; }
+  .header-weather-symbol svg { width: 23px; height: 23px; }
+  .header-weather-detail { position: fixed; top: 64px; right: 12px; width: min(316px,calc(100vw - 24px)); }
+  .dashboard-aside .nita-collaboration-card { grid-column: auto; min-height: 215px; }
+  .nita-vision-card { min-height: 245px; }
+  .nita-vision-card blockquote { font-size: 21px; max-width: 540px; }
+  .nita-quote-bottom > a span { display: inline; margin: 0; }
+  .nita-quote-controls { margin-top: 0; }
+  .nita-calendar-overview { grid-template-columns: 1fr 1fr; padding: 14px 0; }
+  .nita-calendar-overview > div:nth-child(2) { border-right: 0; }
+  .nita-calendar-overview > div:last-child { grid-column: span 2; border-top: 1px solid #edf2ee; margin-top: 14px; padding-top: 14px; }
+  .nita-calendar-overview strong { font-size: 20px; }
+  .nita-calendar-toolbar { gap: 15px; }
+  .nita-calendar-navigation { width: 100%; }
+  .nita-calendar-navigation h2 { font-size: 21px; }
+  .nita-calendar-views { margin-left: auto; }
+  .nita-calendar-sidebar { grid-template-columns: 1fr 1fr; }
+  .nita-day-schedule { grid-column: span 2; }
+  .nita-day-navigation { flex-direction: row; gap: 5px; }
+  .nita-day-navigation button { width: 22px; height: 28px; }
+  .nita-schedule-event { padding: 18px 16px; gap: 11px; }
+  .nita-schedule-heading { padding: 17px 16px; gap: 12px; }
+  .nita-schedule-heading h2 { font-size: 16px; }
+  .nita-day-add { opacity: 1; background: transparent; }
+}
+@media(max-width:460px) {
+  .topbar { gap: 6px; }
+  .header-weather-button { padding: 3px 1px; gap: 3px; }
+  .header-weather-copy strong { font-size: 13px; }
+  .header-weather-copy small { font-size: 8px; }
+  .header-weather-symbol svg { width: 21px; height: 21px; }
+  .nita-calendar-overview > div { padding: 0 12px; gap: 8px; }
+  .nita-overview-icon { width: 28px; height: 28px; }
+  .nita-calendar-overview small { font-size: 10px; }
+  .nita-calendar-navigation h2 { font-size: 18px; }
+  .nita-month-heading { padding-right: 5px; }
+  .nita-month-heading > span { font-size: 9px; }
+  .nita-calendar-navigation { gap: 4px; }
+  .nita-calendar-sidebar { grid-template-columns: 1fr; }
+  .nita-day-schedule { grid-column: auto; }
+  .nita-agenda { padding: 8px 11px; }
+  .nita-agenda .nita-schedule-copy strong { font-size: 12px; }
+}
