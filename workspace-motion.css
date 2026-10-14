@@ -1,0 +1,43 @@
+/* Anime.js owns movement; CSS handles subtle color and shadow changes. */
+.sidebar, .workspace { transition: none; }
+.modal-backdrop, .modal, .toast { animation: none; }
+.stat-card, .doc-card, .person-card, .service-card, .dashboard-card, .knowledge-card {
+  transition: box-shadow 220ms ease;
+}
+.stat-card:hover, .doc-card:hover, .person-card:hover, .service-card:hover,
+.dashboard-card:hover, .knowledge-card:hover { transform: none; }
+.nav-item, .primary-button, .secondary-button, .quiet-button, .danger-button,
+.join-button, .quick-tile, .app-tile, .search-result, .nita-calendar-arrow,
+.nita-today-button, .nita-calendar-views button, .nita-calendar-day {
+  transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease;
+}
+.collapse-button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  padding: 5px;
+  border-radius: 7px;
+  transition: color 220ms ease, background-color 220ms ease;
+}
+.collapse-button:hover { color: #087a3c; background: #e1f3e8; }
+.collapse-button:before, body.sidebar-collapsed .collapse-button:before { content: none; }
+.sidebar-direction { transform-box: fill-box; transform-origin: center; }
+.teams-mark { display: block; width: 18px; height: 18px; flex: none; }
+
+/* Show the NITA emblem from the combined artwork in the compact sidebar. */
+.brand-mark {
+  display: none;
+  width: 48px;
+  height: 48px;
+  flex: none;
+  background: url('public/assets/nita-brand.png') -56px center / auto 48px no-repeat;
+}
+body.sidebar-collapsed .brand { justify-content: center; }
+body.sidebar-collapsed .brand .brand-full { display: none; }
+body.sidebar-collapsed .brand .brand-mark { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}

@@ -203,9 +203,9 @@ button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-
 
 /* Compact header forecast and institutional quotes. */
 .topbar { gap: 16px; }
-.topbar .global-search { max-width: 800px; }
+.topbar .global-search { max-width: none; min-width: 0; }
 .top-actions { margin-left: 0; }
-.header-weather { position: relative; flex: none; margin-left: auto; }
+.header-weather { position: relative; flex: none; margin-left: 0; }
 .header-weather-button { display: flex; align-items: center; gap: 9px; border: 0; background: transparent; padding: 5px 9px; border-radius: 9px; min-height: 43px; text-align: left; color: #24392d; }
 .header-weather-button:hover, .header-weather-button[aria-expanded="true"] { background: #edf6ef; }
 .header-weather-symbol { display: grid; place-items: center; color: #dca934; }

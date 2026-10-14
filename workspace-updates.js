@@ -68,7 +68,14 @@
   }
   function renderHeaderWeather() {
     const weather=weatherCities[state.weatherCity];
-    el('#header-weather').innerHTML=`<button type="button" class="header-weather-button" data-weather-toggle aria-expanded="${state.weatherOpen}" aria-controls="header-weather-detail" aria-label="${state.weatherCity}, ${weather.temp} degrees Celsius. Show sample forecast"><span class="header-weather-symbol ${weather.symbol}">${icon(weather.symbol,28)}</span><span class="header-weather-copy"><strong>${weather.temp}°C</strong><small>${state.weatherCity}</small></span><span class="header-weather-chevron" aria-hidden="true">⌄</span></button><div class="header-weather-detail ${state.weatherOpen?'':'hidden'}" id="header-weather-detail">${weatherPanel()}</div>`;
+    const existingDetail=el('#header-weather-detail');
+    if(existingDetail&&!state.weatherOpen){
+      el('[data-weather-toggle]').setAttribute('aria-expanded','false');
+      WorkspaceMotion.visibility(existingDetail,false);
+      return;
+    }
+    el('#header-weather').innerHTML=`<button type="button" class="header-weather-button" data-weather-toggle aria-expanded="${state.weatherOpen}" aria-controls="header-weather-detail" aria-label="${state.weatherCity}, ${weather.temp} degrees Celsius. Show sample forecast"><span class="header-weather-symbol ${weather.symbol}">${icon(weather.symbol,28)}</span><span class="header-weather-copy"><strong>${weather.temp}°C</strong><small>${state.weatherCity}</small></span><span class="header-weather-chevron" aria-hidden="true">⌄</span></button><div class="header-weather-detail hidden" id="header-weather-detail">${weatherPanel()}</div>`;
+    WorkspaceMotion.visibility(el('#header-weather-detail'),state.weatherOpen);
   }
   const nitaQuotes = [
     {text:'A secure, inclusive, and interoperable Digital Ghana where technology empowers citizens, drives innovation, and accelerates development.',label:'Our Vision'},
@@ -218,7 +225,7 @@
     const forecast=event.target.closest('[data-weather-period]');
     if(forecast){state.weatherPeriod=forecast.dataset.weatherPeriod;renderHeaderWeather();el(`[data-weather-period="${state.weatherPeriod}"]`).focus();return;}
     const quote=event.target.closest('[data-quote-step]');
-    if(quote){state.quoteIndex=(state.quoteIndex+Number(quote.dataset.quoteStep)+nitaQuotes.length)%nitaQuotes.length;el('.nita-vision-card').outerHTML=quoteCard();el(`[data-quote-step="${quote.dataset.quoteStep}"]`).focus();return;}
+    if(quote){state.quoteIndex=(state.quoteIndex+Number(quote.dataset.quoteStep)+nitaQuotes.length)%nitaQuotes.length;el('.nita-vision-card').outerHTML=quoteCard();WorkspaceMotion.enter(el('.nita-vision-card'));el(`[data-quote-step="${quote.dataset.quoteStep}"]`).focus();return;}
     const button=event.target.closest('[data-calendar-action]');if(!button)return;
     const {calendarAction:action,eventId,date,view,category}=button.dataset;
     if(action==='new'){eventForm(null,date||state.calendarSelected);return;}

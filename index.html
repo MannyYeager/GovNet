@@ -9,24 +9,28 @@
   <link rel="icon" type="image/png" href="public/assets/nita-brand.png" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="workspace-updates.css" />
+  <link rel="stylesheet" href="workspace-motion.css" />
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <a class="brand" href="#dashboard" data-page="Home" aria-label="NITA Workspace home">
-        <img src="public/assets/nita-brand.png" alt="Republic of Ghana and NITA" />
+        <img class="brand-full" src="public/assets/nita-brand.png" alt="Republic of Ghana and NITA" />
+        <span class="brand-mark" role="img" aria-label="NITA"></span>
       </a>
       <nav id="side-nav" aria-label="Main navigation"></nav>
       <div class="sidebar-footer">
         <div class="ghana-flag" aria-label="Flag of Ghana"><i></i><i></i><i></i><b>★</b></div>
         <span>People <i>·</i> Service <i>·</i> Progress</span>
-        <button class="collapse-button" id="collapse-sidebar" title="Collapse sidebar" aria-label="Collapse sidebar"></button>
+        <button class="collapse-button" id="collapse-sidebar" title="Collapse sidebar" aria-label="Collapse sidebar" aria-expanded="true" aria-controls="side-nav">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 4v16"/><path class="sidebar-direction" d="m16 9-3 3 3 3"/></svg>
+        </button>
       </div>
     </aside>
 
     <div class="workspace">
       <header class="topbar">
-        <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation"></button>
+        <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"></button>
         <div class="global-search" id="search-wrap">
           <span class="search-symbol"></span>
           <input id="global-search" type="search" placeholder="Search people, documents, services and more..." autocomplete="off" aria-label="Search workspace" />
@@ -36,16 +40,16 @@
         <div class="header-weather" id="header-weather"></div>
         <div class="top-actions">
           <div class="popover-wrap">
-            <button class="top-action" id="notifications-button" aria-label="Notifications"><span class="top-icon"></span><span class="notification-dot">3</span><small>Notifications</small></button>
+            <button class="top-action" id="notifications-button" aria-label="Notifications" aria-expanded="false" aria-controls="notifications-panel"><span class="top-icon"></span><span class="notification-dot">3</span><small>Notifications</small></button>
             <div class="popover notifications-panel hidden" id="notifications-panel"></div>
           </div>
           <div class="popover-wrap">
-            <button class="top-action" id="apps-button" aria-label="Apps"><span class="top-icon"></span><small>Apps</small></button>
+            <button class="top-action" id="apps-button" aria-label="Apps" aria-expanded="false" aria-controls="apps-panel"><span class="top-icon"></span><small>Apps</small></button>
             <div class="popover apps-panel hidden" id="apps-panel"></div>
           </div>
           <button class="top-action help-top" id="help-button" aria-label="Help"><span class="top-icon"></span><small>Help</small></button>
           <div class="profile-wrap">
-            <button class="profile-button" id="profile-button" aria-expanded="false">
+            <button class="profile-button" id="profile-button" aria-expanded="false" aria-controls="profile-menu">
               <span class="avatar avatar-photo">AM</span>
               <span class="profile-copy"><b>Akua Mensah</b><small>Director, Administration</small></span>
               <span class="profile-chevron">⌄</span>
@@ -60,6 +64,8 @@
   </div>
   <div id="toast-region" class="toast-region" aria-live="polite"></div>
   <div id="modal-root"></div>
+  <script src="public/vendor/anime-4.5.0.umd.min.js"></script>
+  <script src="workspace-motion.js"></script>
   <script src="app.js"></script>
   <script src="workspace-updates.js"></script>
 </body>
