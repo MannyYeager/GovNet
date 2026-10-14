@@ -33,7 +33,10 @@
   height: 48px;
   flex: none;
   background: url('public/assets/nita-brand.png') -56px center / auto 48px no-repeat;
+  border-radius: 50%;
+  mix-blend-mode: multiply;
 }
+.brand-full { mix-blend-mode: multiply; }
 body.sidebar-collapsed .brand { justify-content: center; }
 body.sidebar-collapsed .brand .brand-full { display: none; }
 body.sidebar-collapsed .brand .brand-mark { display: block; }

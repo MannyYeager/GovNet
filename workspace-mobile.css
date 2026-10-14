@@ -1,0 +1,223 @@
+/* Phone layouts keep navigation, search, and everyday actions within reach. */
+.mobile-context, .mobile-tabbar, .navigation-scrim { display: none; }
+.main-content { min-width: 0; overflow-x: clip; }
+.progress-track > span { transform-origin: left center; }
+.bar-chart .bar { transform-origin: center bottom; }
+.task-row { transition: background-color 220ms ease; }
+.task-row.completed { background: #f0faf4; border-radius: 8px; }
+
+@media (max-width: 780px) {
+  body { font-size: 14px; }
+  body.mobile-nav-open { overflow: hidden; }
+  .topbar {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) auto auto;
+    grid-template-rows: 44px 44px;
+    height: auto;
+    gap: 8px;
+    padding: calc(10px + env(safe-area-inset-top)) 16px 12px;
+    background: #f9fbfcf5;
+    z-index: 30;
+  }
+  .mobile-menu {
+    grid-column: 1; grid-row: 1;
+    width: 40px; height: 40px;
+    background: #fff; border: 1px solid #e3eae6; border-radius: 12px;
+  }
+  .mobile-menu:before { content: none; }
+  .mobile-context { display: flex; align-items: center; gap: 8px; min-width: 0; grid-column: 2; grid-row: 1; }
+  .mobile-context > span:last-child { min-width: 0; }
+  .mobile-context .brand-mark { display: block; width: 28px; height: 28px; background-size: auto 28px; background-position: -32.6px center; }
+  .mobile-context small { display: block; font-size: 9px; color: #7b8e81; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mobile-context b { display: block; font-size: 13px; color: #234b34; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-top: 2px; }
+  .topbar .global-search { grid-column: 1 / -1; grid-row: 2; width: 100%; height: 44px; padding: 0 14px; border-radius: 12px; gap: 10px; }
+  .topbar .global-search input { font-size: 16px; }
+  .header-weather { grid-column: 3; grid-row: 1; }
+  .header-weather-button { min-height: 40px; padding: 4px; gap: 5px; }
+  .header-weather-copy strong { font-size: 14px; }
+  .header-weather-copy small { font-size: 9px; }
+  .top-actions { grid-column: 4; grid-row: 1; margin: 0; gap: 2px; }
+  .top-actions .popover-wrap:nth-child(2), .help-top { display: none; }
+  .top-action { min-width: 40px; height: 40px; }
+  .notification-dot { top: 0; left: 22px; }
+  .profile-button { min-height: 40px; padding: 0; }
+  .avatar { width: 32px; height: 32px; }
+  .profile-copy, .profile-chevron { display: none; }
+  .header-weather-detail, .top-actions .popover { position: fixed; top: calc(120px + env(safe-area-inset-top)); right: 16px; width: min(340px, calc(100vw - 32px)); max-height: calc(100dvh - 210px); overflow-y: auto; }
+  .search-results { width: 100%; max-height: min(55dvh, 360px); overflow-y: auto; }
+  .search-result { min-height: 50px; padding: 12px; }
+  .search-result small { max-width: 90px; white-space: normal; font-size: 9px; }
+
+  .sidebar { width: min(304px, calc(100vw - 48px)); z-index: 60; box-shadow: 12px 0 40px #122b2925; }
+  .sidebar .brand { height: 86px; padding: 16px 20px; }
+  .sidebar nav { padding: 12px; overscroll-behavior: contain; }
+  .nav-item { min-height: 44px; border-radius: 10px; }
+  .sidebar-footer { padding: 14px 16px calc(14px + env(safe-area-inset-bottom)); }
+  .collapse-button { width: 40px; height: 40px; }
+  .navigation-scrim { display: block; position: fixed; inset: 0; z-index: 50; background: #112a2666; border: 0; backdrop-filter: blur(3px); }
+
+  .mobile-tabbar {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 35;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    background: #ffffffed; border-top: 1px solid #e4ece7;
+    box-shadow: 0 -6px 24px #173d2a06; backdrop-filter: blur(16px);
+  }
+  .mobile-tab { border: 0; border-radius: 12px; background: transparent; color: #829287; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 48px; font-size: 10px; transition: color 220ms ease, background-color 220ms ease; }
+  .mobile-tab.active { color: #087a3c; background: #e8f5ed; font-weight: 600; }
+  .mobile-tab svg { width: 21px; height: 21px; }
+  .mobile-tab:focus-visible { outline-offset: -2px; }
+  .main-content { padding: 20px 16px 24px; }
+  .global-footer { padding: 12px 16px calc(92px + env(safe-area-inset-bottom)); font-size: 10px; }
+  .page-header { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; margin-bottom: 20px; }
+  .breadcrumb { font-size: 10px; margin-bottom: 6px; }
+  .page-header h1 { font-size: 25px; letter-spacing: -.6px; line-height: 1.15; }
+  .page-header p { font-size: 13px; line-height: 1.5; max-width: 48ch; }
+  .header-actions { width: 100%; }
+  .header-actions > button { min-height: 44px; font-size: 13px; padding: 0 16px; border-radius: 10px; }
+  .primary-button, .secondary-button, .quiet-button, .danger-button, .select-filter { min-height: 44px; font-size: 13px; }
+  .content-grid { gap: 16px; }
+  .content-grid > * { grid-column: 1 / -1; }
+  .surface { padding: 18px; border-radius: 16px; }
+  .surface h2, .panel-head h2 { font-size: 16px; }
+  .mini-stat-grid, .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 16px; }
+  .mini-stat { padding: 16px 14px; border-radius: 14px; }
+  .mini-stat span { font-size: 11px; line-height: 1.4; display: block; }
+  .mini-stat strong { font-size: 26px; margin: 8px 0 4px; }
+  .mini-stat small { font-size: 11px; line-height: 1.4; display: block; }
+  .toolbar { gap: 10px; margin-bottom: 16px; }
+  .toolbar .inline-search { width: 100%; flex-basis: 100%; min-height: 44px; }
+  .inline-search input, .select-filter { font-size: 16px; }
+  .chip-row { flex-wrap: nowrap; overflow-x: auto; gap: 8px; padding: 0 0 8px; scrollbar-width: none; }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .chip { flex: none; white-space: nowrap; min-height: 40px; padding: 8px 14px; font-size: 12px; }
+
+  .dashboard-grid, .hero-row, .dashboard-two-col, .dashboard-lower, .dashboard-aside { grid-template-columns: 1fr; gap: 16px; }
+  .dashboard-main { display: flex; flex-direction: column; gap: 16px; }
+  .dashboard-main .hero-row { display: contents; }
+  .dashboard-main .hero-banner { order: 0; }
+  .dashboard-main .stats-grid { order: 1; margin-bottom: 0; }
+  .dashboard-main .dashboard-two-col { order: 2; }
+  .dashboard-main .nita-vision-card { order: 3; }
+  .dashboard-main .dashboard-lower { order: 4; }
+  .hero-banner { min-height: 290px; border-radius: 18px; }
+  .hero-copy { padding: 28px 24px; }
+  .hero-copy h1 { font-size: 34px; line-height: 1.08; }
+  .hero-copy p { font-size: 14px; line-height: 1.55; max-width: 27ch; }
+  .hero-copy .outline-button { min-height: 42px; margin-top: 4px; }
+  .eyebrow { font-size: 9px; letter-spacing: 1.4px; }
+  .hero-mark { display: none; }
+  .nita-vision-card { min-height: 0; padding: 22px; }
+  .nita-vision-card blockquote { font-size: 19px; line-height: 1.45; }
+  .stat-card { padding: 15px 12px; min-height: 94px; border-radius: 14px; gap: 9px; }
+  .stat-icon { width: 34px; height: 34px; }
+  .stat-copy small { font-size: 10px; line-height: 1.3; }
+  .stat-copy strong { font-size: 25px; margin: 4px 0; }
+  .stat-meta { font-size: 9px; white-space: normal; }
+  .stat-arrow { display: none; }
+  .dashboard-aside .nita-collaboration-card { grid-column: auto; min-height: 190px; }
+  .meeting-row { grid-template-columns: 44px 6px minmax(0, 1fr) auto; gap: 8px; min-height: 78px; }
+  .meeting-title b { font-size: 12px; line-height: 1.45; }
+  .meeting-title span { font-size: 10px; line-height: 1.4; }
+  .join-button { min-height: 40px; padding: 8px; font-size: 11px; }
+  .priority-item { min-height: 60px; gap: 10px; align-items: center; }
+  .priority-item .task-text { font-size: 12px; line-height: 1.5; }
+  .quick-tile { min-height: 76px; font-size: 11px; }
+  .news-card b { font-size: 12px; line-height: 1.4; }
+  .news-card img { height: 90px; }
+  .task-row { grid-template-columns: 24px minmax(0, 1fr) auto; padding: 16px 0; gap: 10px; }
+  .task-row input { width: 22px; height: 22px; }
+  .task-title { font-size: 14px; line-height: 1.45; display: block; }
+  .task-meta { display: block; font-size: 11px; line-height: 1.5; }
+  .task-row > .table-action { grid-column: 2; justify-self: start; min-height: 34px; font-size: 12px; }
+  .task-row .due { font-size: 10px; white-space: normal; max-width: 74px; text-align: right; }
+  .policy-row, .help-row { padding: 16px 0; gap: 12px; }
+  .policy-row-main b { font-size: 13px; line-height: 1.4; }
+  .policy-row-main span { font-size: 11px; line-height: 1.5; }
+  .metric-row { gap: 12px; flex-wrap: wrap; font-size: 12px; line-height: 1.5; }
+  .chart-area { height: 180px; }
+  .bar-chart { gap: 6px; }
+  .bar-label { font-size: 9px; }
+
+  .nita-calendar-toolbar { padding: 18px 14px; gap: 16px; }
+  .nita-calendar-views { width: 100%; margin-left: 0; }
+  .nita-calendar-views button { flex: 1; justify-content: center; min-height: 40px; font-size: 12px; padding: 8px; }
+  .nita-calendar-arrow, .nita-today-button { min-width: 36px; height: 40px; }
+  .nita-calendar-navigation { flex-wrap: wrap; }
+  .nita-month-heading { flex: 1; min-width: 130px; }
+  .nita-month-grid { min-width: 0; }
+  .nita-calendar-day { min-height: 78px; padding: 5px 3px; }
+  .nita-weekday { font-size: 10px; padding: 12px 0; }
+  .nita-day-number { width: 32px; height: 32px; }
+  .nita-day-add { display: none; }
+  .nita-calendar-event { height: 7px; min-height: 0; padding: 0; margin: 3px 0; border-radius: 3px; }
+  .nita-calendar-event span, .nita-calendar-event time { display: none; }
+  .nita-calendar-event.green { background: #80bd95; }
+  .nita-calendar-event.blue { background: #97afd6; }
+  .nita-calendar-event.amber { background: #dfbe79; }
+  .nita-more-events { font-size: 9px; padding: 2px 0; }
+  .nita-calendar-sidebar { grid-template-columns: 1fr; gap: 16px; }
+  .nita-day-schedule { grid-column: auto; }
+  .nita-schedule-copy strong { font-size: 13px; line-height: 1.5; }
+  .nita-calendar-legend { gap: 10px; font-size: 10px; }
+  .nita-calendar-legend > small { font-size: 9px; }
+  .nita-agenda { padding: 12px; }
+  .nita-agenda .nita-schedule-event { padding: 15px 10px; }
+  .nita-week-scroll { overscroll-behavior-x: contain; }
+
+  .modal-backdrop { padding: 0; align-items: end; }
+  .modal { width: 100%; max-height: 88dvh; border-radius: 24px 24px 0 0; padding-top: 8px; }
+  .modal-head { position: sticky; top: 0; background: white; z-index: 2; padding: 16px 20px; }
+  .modal-head h2 { font-size: 21px; }
+  .modal-close { width: 40px; height: 40px; }
+  .modal-body { padding: 20px; }
+  .form-grid { grid-template-columns: 1fr; gap: 16px; }
+  .field input, .field select, .field textarea { min-height: 46px; font-size: 16px; border-radius: 10px; }
+  .field label { font-size: 12px; margin-bottom: 8px; }
+  .modal-actions { position: sticky; bottom: 0; background: white; z-index: 2; padding: 16px 20px calc(16px + env(safe-area-inset-bottom)); }
+  .toast-region { left: 16px; right: 16px; bottom: calc(84px + env(safe-area-inset-bottom)); }
+  .toast { justify-content: center; font-size: 13px; }
+}
+
+@media (max-width: 600px) {
+  .doc-grid, .service-grid, .dashboard-cards, .knowledge-grid, .directory-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .doc-card, .service-card, .dashboard-card, .knowledge-card { padding: 20px; border-radius: 14px; }
+  .doc-card h3, .service-card h3, .dashboard-card h3, .knowledge-card h3 { font-size: 15px; line-height: 1.4; }
+  .doc-card p, .service-card p, .dashboard-card p, .knowledge-card p { font-size: 12px; line-height: 1.5; }
+  .doc-card-meta { font-size: 11px; }
+  .person-card { display: grid; grid-template-columns: 96px minmax(0, 1fr); border-radius: 14px; }
+  .person-photo { height: 100%; min-height: 156px; }
+  .person-info { padding: 16px 12px; }
+  .person-info b { font-size: 14px; }
+  .person-info span, .person-info small { font-size: 11px; line-height: 1.4; }
+  .person-card-actions { gap: 6px; }
+  .person-card-actions button { padding: 0 8px; font-size: 11px; }
+  .news-list { grid-template-columns: 1fr; }
+  .news-card { display: grid; grid-template-columns: 86px minmax(0, 1fr); column-gap: 12px; align-items: center; }
+  .news-card img { width: 86px; height: 74px; grid-row: 1 / 3; border-radius: 10px; }
+  .news-card small { font-size: 10px; }
+  .data-table-wrap { border: 0; border-radius: 0; overflow: visible; background: none; }
+  .data-table { display: block; min-width: 0; }
+  .data-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .data-table tbody { display: grid; gap: 12px; }
+  .data-table tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 16px; border: 1px solid #e6ede8; border-radius: 14px; background: #fbfdfb; }
+  .data-table td { display: block; border: 0; padding: 0; min-width: 0; font-size: 12px; line-height: 1.5; overflow-wrap: anywhere; }
+  .data-table td:first-child, .data-table td:last-child { grid-column: 1 / -1; }
+  .data-table td[data-label]:not([data-label=""]):not(:first-child):before { content: attr(data-label); display: block; color: #83988a; font-size: 10px; margin-bottom: 5px; }
+  .data-table .table-primary { font-size: 14px; line-height: 1.5; }
+  .data-table .table-sub { font-size: 11px; line-height: 1.5; margin-top: 4px; }
+  .data-table .table-action { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 8px 14px; border-radius: 9px; background: #e7f4eb; color: #147b41; }
+}
+
+@media (max-width: 360px) {
+  .topbar { padding-left: 12px; padding-right: 12px; gap: 6px; }
+  .mobile-context .brand-mark { display: none; }
+  .mobile-context small { font-size: 8px; }
+  .main-content { padding-left: 12px; padding-right: 12px; }
+  .person-card { grid-template-columns: 78px minmax(0, 1fr); }
+  .stat-card { gap: 6px; padding: 12px 9px; }
+  .stat-icon { width: 28px; height: 28px; }
+  .hero-copy { padding: 24px 20px; }
+  .hero-copy h1 { font-size: 30px; }
+}
