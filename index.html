@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#f4f7f7" />
   <meta name="description" content="NITA Ghana staff workspace prototype" />
   <title>NITA Workspace | Ghana</title>
@@ -10,8 +10,12 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="workspace-updates.css" />
   <link rel="stylesheet" href="workspace-motion.css" />
+  <link rel="stylesheet" href="workspace-mobile.css" />
+  <link rel="stylesheet" href="workspace-help.css" />
+  <link rel="stylesheet" href="workspace-panels.css" />
 </head>
 <body>
+  <button class="navigation-scrim hidden" id="navigation-scrim" aria-label="Close navigation" tabindex="-1"></button>
   <div class="app-shell">
     <aside class="sidebar" id="sidebar">
       <a class="brand" href="#dashboard" data-page="Home" aria-label="NITA Workspace home">
@@ -31,6 +35,7 @@
     <div class="workspace">
       <header class="topbar">
         <button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar"></button>
+        <div class="mobile-context"><span class="brand-mark" aria-hidden="true"></span><span><small>NITA Workspace</small><b id="mobile-page-title">Home</b></span></div>
         <div class="global-search" id="search-wrap">
           <span class="search-symbol"></span>
           <input id="global-search" type="search" placeholder="Search people, documents, services and more..." autocomplete="off" aria-label="Search workspace" />
@@ -49,12 +54,12 @@
           </div>
           <button class="top-action help-top" id="help-button" aria-label="Help"><span class="top-icon"></span><small>Help</small></button>
           <div class="profile-wrap">
-            <button class="profile-button" id="profile-button" aria-expanded="false" aria-controls="profile-menu">
+            <button class="profile-button account-trigger" id="profile-button" aria-label="Open account menu for Akua Mensah" aria-expanded="false" aria-controls="profile-menu">
               <span class="avatar avatar-photo">AM</span>
               <span class="profile-copy"><b>Akua Mensah</b><small>Director, Administration</small></span>
-              <span class="profile-chevron">⌄</span>
+              <span class="profile-chevron"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></span>
             </button>
-            <div class="popover profile-menu hidden" id="profile-menu"></div>
+            <div class="popover profile-menu account-menu hidden" id="profile-menu"></div>
           </div>
         </div>
       </header>
@@ -62,6 +67,7 @@
       <footer class="global-footer"><span>© 2026 NITA Ghana</span><span>Workspace prototype <i>·</i> Sample data</span><a href="#help-feedback" data-page="Help & Feedback">Help & feedback</a></footer>
     </div>
   </div>
+  <nav class="mobile-tabbar" id="mobile-tabbar" aria-label="Quick navigation"></nav>
   <div id="toast-region" class="toast-region" aria-live="polite"></div>
   <div id="modal-root"></div>
   <script src="public/vendor/anime-4.5.0.umd.min.js"></script>
