@@ -42,7 +42,9 @@ Then open http://127.0.0.1:8080/.
 - app.js: screens and demonstration interactions
 - workspace-updates.js: calendar interactions, detailed icons, and weather UI
 - workspace-updates.css: updated slogan, weather, and calendar styling
+- workspace-motion.js and workspace-motion.css: shared Anime.js transitions, sidebar movement, and reduced-motion support
 - public/assets: local images, logo, and fonts
+- public/vendor: bundled Anime.js 4.5.0 (MIT; license included), with no CDN or package installation needed
 - server.cjs: optional static server using Node.js built-in modules
 
 Screens: Home, My Work, Tasks, Calendar, Documents, Teams & Collaboration, Service Requests, Approvals, Policies & Guidelines, Knowledge Hub, Performance, Reports & Analytics, Dashboards, IT Support, Facilities, Help & Feedback.
